@@ -26,4 +26,4 @@ The menu offers 30, 40, 60 and 120 FPS plus Unlocked. This selects a cap, not a 
 
 ## Language
 
-Language is a separate game-text/menu override. Select the desired language, apply it and restart the game. This setting is distinct from the language of this project-authored settings panel.
+Language is a separate game-text/menu override. Select the desired language, apply it and restart the game. This setting is distinct from the language of the settings panel.

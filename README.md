@@ -64,13 +64,13 @@ In an open-field run on the AYN Thor with **Turnip V38**, heavier sections were 
 | Mean GPU utilization | 74%, GPU clock 680 MHz |
 | Stability during this session | No observed crash or freeze |
 
-This run used Turnip V38; I later switched back to Turnip 27. The roughly 47-fps figure comes from the median sampled frame interval, so it is not an average across the game. I haven’t established the internal render resolution for this run. Bring your own driver; none is bundled.
+This run used Turnip V38. The reference setup now uses Turnip 27. The roughly 47-fps figure comes from the median sampled frame interval, so it is not an average across the game. The internal render resolution for this run is unconfirmed. Bring your own driver; none is bundled.
 
 ## Video settings
 
 ![Project-authored TOTK video settings UI with illustrative rendering, output, frame-limit and language values](docs/images/video-settings.png)
 
-*Settings menu preview, rendered from the app's HTML. The values shown are examples.*
+*Settings menu preview, rendered from the HTML settings interface. The values shown are examples.*
 
 Press **L3 + R3 together** on the AYN Thor to open the menu. Use the D-pad to navigate and left/right to change a value. Select **Apply changes** and confirm with **A**. **B goes back**.
 
