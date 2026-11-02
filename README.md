@@ -1,5 +1,5 @@
 <h1 align="center">totkonandroid</h1>
-<p align="center"><strong>The Legend of Zelda: Tears of the Kingdom · experimental Android runtime</strong></p>
+<p align="center"><strong>TOTK · experimental Android runtime</strong></p>
 <p align="center">
   <img src=".github/badges/reference.svg" alt="Reference device: AYN Thor">
   <img src=".github/badges/platform.svg" alt="Target: Android ARM64">
@@ -23,7 +23,7 @@ A native ARM64 runtime for Android, with a Vulkan renderer and on-device shader 
 > **The AYN Thor is the reference device.** Performance figures, controls and compatibility observations describe this device. Other Android hardware is unverified. This is an experimental project with known bugs.
 
 > [!NOTE]
-> **Source only.** No APKs, game files, keys, firmware, saves or game shader caches are distributed. Supply your own game input and build locally. This unofficial project is not affiliated with Nintendo.
+> **Source only.** No APKs, game files, keys, firmware, saves or game shader caches are distributed. Supply your own game input and build locally. This unofficial project is in no way affiliated with, endorsed by, or sponsored by Nintendo.
 
 ## At a glance
 
@@ -124,6 +124,12 @@ No app was installed or launched during this export validation. See [VALIDATION.
 | `vendor/` | Shader-translator dependency source |
 | `tools/` | Import, build/preparation, install and publication helpers |
 | `docs/` | Reference-device and video-settings guides, UI preview and inherited technical notes |
+
+## Acknowledgements
+
+This project is **in no way affiliated with, endorsed by, or sponsored by Nintendo**.
+
+**Thank you, Nintendo, for this magnificent game.**
 
 ## Source, licensing and contributions
 

@@ -34,15 +34,15 @@ namespace Ryujinx.Common
             "01007e3006dda000", // Kirby Star Allies
             "01003fb00c5a8000", // Super Kirby Clash
             
-                          //The Zelda Franchise
+            // Related title identifiers
             "01000b900d8b0000", // Cadence of Hyrule
             "0100ae00096ea000", // Hyrule Warriors: Definitive Edition
             "01002b00111a2000", // Hyrule Warriors: Age of Calamity
-            "01007ef00011e000", // The Legend of Zelda: Breath of the Wild
-            "01006bb00c6f0000", // The Legend of Zelda: Link's Awakening
-            "01002da013484000", // The Legend of Zelda: Skyward Sword HD
-            "0100f2c0115b6000", // The Legend of Zelda: Tears of the Kingdom
-            "01008cf01baac000", // The Legend of Zelda: Echoes of Wisdom
+            "01007ef00011e000",
+            "01006bb00c6f0000",
+            "01002da013484000",
+            "0100f2c0115b6000",
+            "01008cf01baac000",
                 
                           //Luigi Franchise
             "010048701995e000", // Luigi's Mansion 2 HD
@@ -92,26 +92,26 @@ namespace Ryujinx.Common
             "0100f4c009322000", // Pikmin 3 Deluxe
             "0100b7c00933a000", // Pikmin 4
 
-                          //The Pokémon Franchise
-            "0100f4300bf2c000", // New Pokémon Snap
-            "0100000011d90000", // Pokémon Brilliant Diamond
-            "010008c01e742000", // Pokémon Friends
-            "01001f5010dfa000", // Pokémon Legends: Arceus
-            "01003d200baa2000", // Pokémon Mystery Dungeon - Rescue Team DX
-            "0100a3d008c5c000", // Pokémon Scarlet
-            "01008db008c2c000", // Pokémon Shield
-            "010018e011d92000", // Pokémon Shining Pearl
-            "0100abf008968000", // Pokémon Sword
-            "01008f6008c5e000", // Pokémon Violet
+            // Related title identifiers
+            "0100f4300bf2c000",
+            "0100000011d90000",
+            "010008c01e742000",
+            "01001f5010dfa000",
+            "01003d200baa2000",
+            "0100a3d008c5c000",
+            "01008db008c2c000",
+            "010018e011d92000",
+            "0100abf008968000",
+            "01008f6008c5e000",
             "0100b3f000be2000", // Pokkén Tournament DX
-            "0100187003a36000", // Pokémon: Let's Go Eevee!
-            "010003f003a34000", // Pokémon: Let's Go Pikachu!
-            "0100f43008c44000", // Pokémon Legends: Z-A
-            "0100554023408000", // Pokémon FireRed Version (EN)
-            "01006fa0233f8000", // Pokémon FireRed Version (JP)
-            "0100fd6023430000", // Pokémon LeafGreen Version (DE)
-            "0100f1e0233fa000", // Pokémon LeafGreen Version (JP)
-            "01005b7008c52000", // Pokémon Champions
+            "0100187003a36000",
+            "010003f003a34000",
+            "0100f43008c44000",
+            "0100554023408000",
+            "01006fa0233f8000",
+            "0100fd6023430000",
+            "0100f1e0233fa000",
+            "01005b7008c52000",
 
                           //Splatoon Franchise
             "0100f8f0000a2000", // Splatoon 2 (EU)

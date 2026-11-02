@@ -11,3 +11,5 @@ The original source is licensed software, not copyright-free material. Preserve 
 Current setup instructions are README.md and BUILD_ANDROID.md. README.upstream.md and older platform documents describe the inherited Apple implementation and are retained for technical reference and attribution. Private session handoffs and historical visual reviews are omitted.
 
 The documentation now includes original text-only SVG badges and one SHA-256-approved screenshot of the project-authored settings HTML. It was rendered with illustrative bridge values in an isolated browser, not captured from gameplay. These are the only approved visual documentation assets; no game artwork or official logo was added.
+
+Presentation names and explanatory comments have been adapted for this fork. Original third-party copyright notices and the complete operative license terms are retained. Links to upstream projects identify source provenance; no periodic upstream synchronization is configured. Some build-time dependencies are fetched explicitly by the build tools.

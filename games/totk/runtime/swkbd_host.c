@@ -238,7 +238,7 @@ static void *probe_thread(void *unused) {
         {2, 0, 9, 0, 0x12c, 0, NULL, "<cancel>", "", SWKBD_CANCELED},
         {0, 2, 0, 0, 0, 1, NULL, "小马Ab", "小马Ab", 0},                          /* UTF-8 out (checked below) */
         {0, 2, 3, 0, 0, 0, NULL, "小马🐴", "小马", 0},                            /* no half surrogate pair */
-        {0, 2, 0, 0, 0, 0, "Zelda", "<initial>", "Zelda", 0},                     /* initial text from the work buffer */
+        {0, 2, 0, 0, 0, 0, "Player", "<initial>", "Player", 0},                     /* initial text from the work buffer */
         {0, 1, 0, 0, 0, 0, NULL, "a1b2c3", "123", 0},                            /* number pad */
         {0, 2, 9, 3, 0, 0, NULL, "ab", "", SWKBD_CANCELED},                       /* shorter than the minimum */
     };
