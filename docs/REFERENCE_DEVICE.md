@@ -6,6 +6,7 @@
 |---|---|
 | Device | AYN Thor |
 | SoC | Snapdragon 8 Gen 2 |
+| GPU | Qualcomm Adreno 740 |
 | Architecture / graphics API | ARM64 / Vulkan |
 | Local controls | Integrated controller; L3 + R3 opens video settings |
 | Host used to build the export | macOS ARM64 |

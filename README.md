@@ -29,7 +29,9 @@ A native ARM64 runtime for Android, with a Vulkan renderer and on-device shader 
 
 | | Reference configuration |
 |---|---|
-| **Device** | **AYN Thor · Snapdragon 8 Gen 2 · ARM64** |
+| **Reference device** | **AYN Thor** |
+| **SoC** | Snapdragon 8 Gen 2 · ARM64 |
+| **GPU** | **Qualcomm Adreno 740** |
 | **Supported game input** | TOTK **1.4.3** |
 | **Observed heavier sections** | Approximately **35–40 fps** in the documented open-field session |
 | **Graphics** | Vulkan · local Turnip testing |
