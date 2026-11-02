@@ -33,7 +33,7 @@ A native ARM64 runtime for Android, with a Vulkan renderer and on-device shader 
 | **SoC** | Snapdragon 8 Gen 2 · ARM64 |
 | **GPU** | **Qualcomm Adreno 740** |
 | **Supported game input** | TOTK **1.4.3** |
-| **Observed heavier sections** | Approximately **35–40 fps** in the documented open-field session |
+| **Open-field performance** | Around **35–40 fps** in heavier sections |
 | **Graphics** | Vulkan · local Turnip testing |
 | **Build host** | macOS ARM64 |
 | **Project state** | Experimental; scene/device-specific performance and incomplete full-game coverage |
@@ -64,7 +64,7 @@ In an open-field run on the AYN Thor with **Turnip V38**, heavier sections were 
 | Mean GPU utilization | 74%, GPU clock 680 MHz |
 | Stability during this session | No observed crash or freeze |
 
-These samples are not a full-game average or a sustained 47-fps claim. The reciprocal of a median interval is not average FPS. The benchmark driver differs from the later restored Turnip 27 configuration. The report does not independently establish the render resolution. Driver binaries are not bundled.
+This run used Turnip V38; I later switched back to Turnip 27. The roughly 47-fps figure comes from the median sampled frame interval, so it is not an average across the game. I haven’t established the internal render resolution for this run. Bring your own driver; none is bundled.
 
 ## Video settings
 

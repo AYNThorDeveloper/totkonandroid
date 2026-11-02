@@ -11,7 +11,7 @@
 | Local controls | Integrated controller; L3 + R3 opens video settings |
 | Host used to build the export | macOS ARM64 |
 
-TOTK: the documented open-field session used Turnip V38 and reported approximately 35–40 fps in heavier sections. A later local configuration restored Turnip 27. The measured session does not independently establish the internal render resolution; see README.md for frametimes and limits.
+I use Turnip 27 for local TOTK testing. The open-field figures in the README were recorded with Turnip V38, at around 35–40 fps in heavier sections. I haven’t established the internal render resolution for that run; the README includes the sampled frame times.
 
 Driver binaries, device-specific private data and firmware are not distributed. For reports from another device, provide its exact model, SoC, Android version, driver and render/output settings, and state that it differs from the AYN Thor reference model.
 
