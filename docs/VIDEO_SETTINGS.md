@@ -1,6 +1,6 @@
 # Video settings on the AYN Thor
 
-**Reference device: AYN Thor.** The menu is project-authored HTML displayed by the Android app's WebView, with native hooks for reading and saving settings.
+**Reference device: AYN Thor.** The menu is project-authored HTML displayed in an Android WebView, with native hooks for reading and saving settings.
 
 ![Project-authored video-settings menu preview](images/video-settings.png)
 
@@ -18,11 +18,11 @@ Use the D-pad to choose a row or action and left/right to adjust the selected se
 
 ## Rendering versus output
 
-Render resolution controls the game image's internal drawing resolution. Output resolution controls the final image size sent to the display. They can differ: a 1920 × 1080 output can present an image rendered at 1280 × 720. Increasing output alone does not establish native 1080p rendering. Resolution changes require restarting the game after saving.
+Render resolution controls the internal drawing resolution of the game image. Output resolution controls the final image size sent to the display. They can differ: a 1920 × 1080 output can present an image rendered at 1280 × 720. Increasing output alone does not establish native 1080p rendering. Resolution changes require restarting the game after saving.
 
 ## Frame-rate limits
 
-The menu offers 30, 40, 60 and 120 FPS plus Unlocked. This selects a cap, not a performance guarantee. Scene complexity, shader compilation, driver behavior and the reference device's workload determine the achieved rate. Applying an FPS choice changes pacing immediately; resolution changes wait until restart.
+The menu offers 30, 40, 60 and 120 FPS plus Unlocked. This selects a cap, not a performance guarantee. Scene complexity, shader compilation, driver behavior and GPU workload determine the achieved rate. Applying an FPS choice changes pacing immediately; resolution changes wait until restart.
 
 ## Language
 

@@ -15,4 +15,4 @@ The TOTK reference setup uses Turnip 27 on AYN Thor. The open-field figures in t
 
 Driver binaries, device-specific private data and firmware are not distributed. For reports from another device, provide its exact model, SoC, Android version, driver and render/output settings, and state that it differs from the AYN Thor reference model.
 
-Inherited upstream Apple documentation is retained for source context. It does not change this Android fork's reference device. Follow the current README.md and BUILD_ANDROID.md for setup.
+Inherited upstream Apple documentation is retained for source context. It does not change the reference device for this Android fork. Follow the current README.md and BUILD_ANDROID.md for setup.
