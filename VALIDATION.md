@@ -1,37 +1,41 @@
-# Validation — 2 November 2026
+# Testing
 
-**Reference device: AYN Thor.** See [reference configuration](docs/REFERENCE_DEVICE.md); observations on other hardware are unverified.
+**Reference hardware:** AYN Thor, Snapdragon 8 Gen 2, Adreno 740. The build host is macOS ARM64. Other devices are unverified.
 
-## Export build
+## Build checks
 
-The publication source was copied into an isolated temporary checkout. Game input and generated output were kept outside the publication directories.
+The supported extracted game input has been prepared into runtime data, the Android NativeAOT shader translator built from source, and a local debug APK packaged and signature-verified. The APK is a private build output and is not distributed.
+
+The build used Python 3.14, JDK 21, Android SDK/build-tools 35, NDK 30 and .NET SDK 10.0.403. Restoring dependencies needs network access. NativeAOT emits reflection-analysis warnings, so a successful build doesn't establish that every shader path works.
+
+## Host tests
 
 | Check | Result |
 |---|---|
-| Supported local dump preparation | Passed |
-| Android NativeAOT translator built from vendored source | Passed |
-| Native Android loader/Vulkan library | Built successfully |
-| Debug APK packaging and signature verification | Passed; private test output only |
-| RomFS backend regressions | 23 scenarios passed, ASan/UBSan |
-| Graphics-settings regressions | Passed, ASan/UBSan |
-| Renderer host regression script | Passed; its synthetic checks completed |
+| RomFS backend | 23 scenarios passed with ASan/UBSan |
+| Graphics-settings persistence and validation | Passed with ASan/UBSan |
+| Renderer host regressions | Passed for the synthetic cases |
 | Installation plan without device writes | Passed |
-| Production C/header/assembly/C#/GLSL source comparison | Final publication files match the successful build checkout |
-| Source-only publication guard | Passed before packaging |
+| Source-only publication check | Passed |
 
-The host used macOS ARM64, Python 3.14, JDK 21, Android SDK/build-tools 35, Android NDK 30 and .NET SDK 10.0.403. Package restoration needed network access. NativeAOT emitted reflection-analysis warnings; successful compilation is not proof that every shader path works. No device was installed, launched or modified during this validation.
+Run:
 
-## NSP and private data preparation
+```sh
+python3 tools/publication_guard.py
+python3 android/test_romfs.py
+bash android/test_graphics_settings.sh
+# macOS with the Android NDK available:
+bash android/test_renderer_fixes.sh
+```
 
-The command-line wrapper checks supported ExeFS hashes before attempting RomFS merge and runtime preparation. The exported merge implementation was exercised on the owner's Z-A base + 1.0.2 update: all six IVFC levels verified and the merged image SHA-256 matched the previous local reference. The wrapper correctly rejected that 1.0.2 update when configured for the supported 2.0.2 runtime.
+GitHub Actions runs the first three checks. See the Actions tab for the result on the current commit. Renderer cases requiring a private shader cache are skipped when no cache is supplied.
 
-Supported TOTK 1.4.3 and Z-A 2.0.2 runtime preparation was exercised using existing verified extracted input. Their original supported update NSP files were not available for a complete fresh base-to-APK rerun of the new wrapper. The tests above establish the preparation/build stages and merge/version-check components; they do not establish a new single-command end-to-end NSP run for both supported versions.
+## NSP preparation
 
-## Remaining validation limits
+The importer verifies the supported update's ExeFS hashes before merging RomFS and preparing runtime data. The merge implementation was tested with a Z-A base game and 1.0.2 update: all six IVFC levels passed, and the resulting image matched the existing reference hash. The 2.0.2 importer also correctly rejected that unsupported 1.0.2 update.
 
-- No fresh gameplay, cold-cache or full-game test of this export was performed.
-- Renderer cases that require private shader caches were skipped when those caches were absent; a passing synthetic suite does not validate all game shaders.
-- Performance in README.md refers to the documented local gameplay observations, not a new benchmark of this export.
-- No new device/driver compatibility claim follows from a successful host build.
-- Hosted workflow results appear in this repository’s Actions tab. The local validation reported above predates upload and does not substitute for hosted CI.
-- Source selection and licensing review scope is documented in PUBLICATION_REVIEW.md. Pattern scans are not a legal clearance.
+Runtime preparation and the Android build were tested using verified extracted TOTK 1.4.3 and Z-A 2.0.2 input. A complete fresh base/update-NSP-to-APK run for both supported versions still needs testing.
+
+## Gameplay coverage
+
+The README describes local play on the AYN Thor. A complete playthrough, empty-cache runs and other device/driver combinations still need more coverage. Passing host tests or building an APK doesn't establish full-game compatibility.

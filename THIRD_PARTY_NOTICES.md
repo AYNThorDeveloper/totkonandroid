@@ -24,7 +24,7 @@ Fetched or linked at build time (not in this repository):
 
 ## Android additions
 
-The Android source snapshot includes Opus 1.5.2 (BSD-style, see `android/third_party/opus-1.5.2/COPYING`), libadrenotools (see `android/third_party/libadrenotools/LICENSE`), and its nested liblinkernsbypass source (see `android/third_party/libadrenotools/lib/linkernsbypass/LICENSE`). Preserve those notices in redistributions. The NDK C++ runtime is linked by the Android build and retains its own license. The shader translator binary is generated locally rather than shipped in this draft.
+The Android code includes Opus 1.5.2 (BSD-style, see `android/third_party/opus-1.5.2/COPYING`), libadrenotools (see `android/third_party/libadrenotools/LICENSE`), and its nested liblinkernsbypass source (see `android/third_party/libadrenotools/lib/linkernsbypass/LICENSE`). Preserve those notices in redistributions. The NDK C++ runtime is linked by the Android build and retains its own license. The shader translator binary is generated locally rather than distributed as a binary.
 
 Android dependencies included as source:
 

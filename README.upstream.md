@@ -2,7 +2,6 @@
 
 # English
 
-> **Use your AI assistant to help you build the Mac app. We recommend Claude Code, Codex, or any other AI assistant you prefer.**
 
 [English](#english) | [中文](#chinese)
 
@@ -230,7 +229,6 @@ MIT (see [LICENSE](LICENSE)). Third-party code keeps its own license: [THIRD_PAR
 
 # 中文说明
 
-> **请使用你的 AI 助理帮你完成 Mac App 的构建。推荐 Claude Code、Codex，或其他你喜欢的 AI 助理。**
 
 [英文说明](#english) | [中文说明](#chinese)
 

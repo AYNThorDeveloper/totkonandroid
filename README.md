@@ -51,11 +51,11 @@ The native Android shader translator can build missing variants on the device. A
 
 ## Performance on the AYN Thor
 
-Measured 29 October 2026 with **Turnip V38**, during approximately 135 seconds of user-controlled open-field gameplay. Presentation intervals were sampled in 59 groups of five frames.
+In an open-field run on the AYN Thor with **Turnip V38**, heavier sections were around **35–40 fps**. The figures below come from roughly 135 seconds of play, with frame intervals sampled in 59 groups of five frames.
 
 | Metric | Observation |
 |---|---|
-| Heavier sections | Approximately 25–30 ms; reported approximately **35–40 fps** |
+| Heavier sections | Approximately 25–30 ms; around **35–40 fps** |
 | Median sampled presentation interval | **21.2 ms** — approximately 47 fps reciprocal |
 | p95 sampled interval | 31.0 ms |
 | Maximum sampled interval | 46.1 ms |
@@ -70,7 +70,7 @@ These samples are not a full-game average or a sustained 47-fps claim. The recip
 
 ![Project-authored TOTK video settings UI with illustrative rendering, output, frame-limit and language values](docs/images/video-settings.png)
 
-*Browser capture of the project's own menu HTML. The example values illustrate the controls; this is not a device or gameplay screenshot. No game imagery or official logo is included.*
+*Settings menu preview, rendered from the app's HTML. The values shown are examples.*
 
 Press **L3 + R3 together** on the AYN Thor to open the menu. Use the D-pad to navigate and left/right to change a value. Select **Apply changes** and confirm with **A**. **B goes back**.
 
@@ -89,7 +89,7 @@ Output resolution and internal render resolution are separate. A 1080p output al
 |---|---|
 | Shader compilation | First-use translation can cause visible stalls, especially with an empty cache |
 | Hardware | Devices other than the AYN Thor reference model are unverified |
-| Coverage | The full game has not been validated in this exported checkout |
+| Coverage | A complete playthrough has not been tested |
 | Setup | Command-line developer workflow; no in-app importer |
 | Build hosts | Windows and Linux workflows are not supported by these instructions |
 | Higher resolutions | Options exist; the cited benchmark does not establish a tested 1080p configuration |
@@ -97,23 +97,17 @@ Output resolution and internal render resolution are separate. A 1080p output al
 <details>
 <summary><strong>Resolved issues and remaining test coverage</strong></summary>
 
-The black weapon/ability wheel and dark shadow blocks were reported fixed on the AYN Thor on 28 October. They are not listed as open bugs. Cold-cache gameplay of this exported checkout still needs device validation.
+The black weapon/ability wheel and dark shadow blocks are fixed on the AYN Thor. Empty-cache gameplay still needs more testing.
 
 </details>
 
-## Build verification
+## Testing
 
-The isolated source export was prepared and built on 2 November 2026:
+The Android app and native shader translator build from source. The local debug APK passes signature verification, and the filesystem, graphics-settings and renderer tests pass within the scope described in [VALIDATION.md](VALIDATION.md).
 
-| Check | Local result |
-|---|---|
-| Supported dump → private runtime data | Passed |
-| Android NativeAOT translator | Built from source |
-| Private debug APK and signature verification | Passed; **not distributed** |
-| RomFS backend | 23 scenarios passed, ASan/UBSan |
-| Graphics settings and renderer host regressions | Passed within the documented scope |
+The RomFS tests cover 23 scenarios with AddressSanitizer and UndefinedBehaviorSanitizer. GitHub Actions runs the source check, RomFS tests and graphics-settings tests on each push.
 
-No app was installed or launched during this export validation. See [VALIDATION.md](VALIDATION.md) for skipped private-cache checks, the NSP wrapper's test scope and device-test limits.
+Build and host tests don't replace gameplay testing. A complete playthrough, empty-cache behavior and other devices still need more coverage.
 
 ## Project layout
 
@@ -123,7 +117,7 @@ No app was installed or launched during this export validation. See [VALIDATION.
 | `games/totk/` | Inherited runtime, graphics implementation and preparation code |
 | `vendor/` | Shader-translator dependency source |
 | `tools/` | Import, build/preparation, install and publication helpers |
-| `docs/` | Reference-device and video-settings guides, UI preview and inherited technical notes |
+| `docs/` | Reference-device and video-settings guides, UI preview and upstream technical notes |
 
 ## Acknowledgements
 
@@ -133,7 +127,7 @@ This project is **in no way affiliated with, endorsed by, or sponsored by Ninten
 
 ## Source, licensing and contributions
 
-Preserve [LICENSE](LICENSE), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and all dependency notices. The retained code is licensed source; no license to game or firmware content is granted. See [SOURCE_ORIGIN.md](SOURCE_ORIGIN.md) and [PUBLICATION_REVIEW.md](PUBLICATION_REVIEW.md) for the selection and review scope.
+Preserve [LICENSE](LICENSE), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and all dependency notices. The retained code is licensed source; no license to game or firmware content is granted. See [SOURCE_ORIGIN.md](SOURCE_ORIGIN.md) for credits and source details.
 
 The badges and menu preview are project-authored documentation assets. [README.upstream.md](README.upstream.md) describes the inherited Apple implementation and is retained for attribution and technical reference.
 
