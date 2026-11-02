@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:">
+<title>Grafische instellingen · Thor</title>
+<style>
+:root{color-scheme:dark;--ink:#f2ecd9;--muted:#b6c2b6;--line:#b9c9b52b;--mint:#87e0c2;--gold:#c3ae77}
+*{box-sizing:border-box}body{margin:0;background:transparent;color:var(--ink);font:16px/1.5 system-ui,sans-serif;height:100vh;height:100dvh;overflow:hidden}
+.backdrop{position:fixed;inset:0;background:radial-gradient(ellipse at 16% 15%,#37614b50,transparent 60%),linear-gradient(115deg,#122323f5,#0a1518f7);display:grid;place-items:center;padding:22px 36px}
+.panel{width:min(1050px,100%);max-height:100%;overflow:auto;position:relative}header{display:flex;gap:22px;align-items:center;padding:12px 0 22px;border-bottom:1px solid var(--line)}
+.mark{height:46px;width:46px;border:1px solid var(--gold);transform:rotate(45deg);display:grid;place-items:center;margin:8px;color:var(--mint);font:32px Georgia}.mark span{transform:rotate(-45deg)}
+.eyebrow{letter-spacing:.24em;font-size:10px;color:var(--gold);text-transform:uppercase}h1{font:italic 34px/1.2 Georgia,serif;margin:5px 0 0;letter-spacing:.02em}.tag{margin-left:auto;color:var(--muted);font-size:11px;text-align:right;max-width:185px}
+main{display:grid;grid-template-columns:150px 1fr;gap:34px;padding:26px 0}aside{padding-top:10px}aside div{color:var(--mint);border-left:2px solid var(--mint);padding:9px 18px;background:linear-gradient(90deg,#87e0c21a,transparent);letter-spacing:.12em;font-size:13px}aside p{font-size:11px;color:var(--muted);padding:12px 18px}
+h2{margin:0;font-size:17px;font-weight:500;letter-spacing:.025em}.hint{font-size:12px;color:var(--muted);margin:5px 0 14px}.options{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:23px}
+button{font:inherit;color:var(--ink);border:1px solid var(--line);background:#cbdccc06;cursor:pointer;position:relative;transition:background .12s,border-color .12s;touch-action:manipulation;min-height:44px}button:hover{background:#87e0c216}button:focus-visible{outline:2px solid var(--ink);outline-offset:4px}button:disabled{opacity:.5;cursor:wait}
+.option{padding:11px 14px;text-align:left;min-height:82px}.option strong{display:block;font:24px Georgia,serif;font-weight:400}.option small{font-size:11px;color:var(--muted)}.option[aria-pressed=true]{border-color:var(--mint);background:linear-gradient(135deg,#87e0c21c,#87e0c208)}.option[aria-pressed=true]:after{content:'◆';position:absolute;right:10px;top:9px;font-size:9px;color:var(--mint)}
+.bottom-note{display:flex;gap:14px;align-items:center;font-size:12px;background:#87e0c208;border-left:2px solid #87e0c25c;padding:10px 14px;margin-top:3px}.bottom-note b{color:var(--mint);font-weight:500;white-space:nowrap}.bottom-note span{color:var(--muted)}footer{border-top:1px solid var(--line);padding:17px 0 8px;display:flex;align-items:center;gap:12px}.actions{display:flex;gap:10px;margin-left:auto}.action{padding:9px 18px;font-size:13px}.primary{color:#112c25;background:var(--mint);border-color:var(--mint);font-weight:600}.primary:hover{background:#a3efd5}.reset{border:0;background:transparent;color:var(--muted);padding-left:0}.controls{font-size:11px;color:var(--muted);margin-top:12px;display:flex;justify-content:space-between}.status{color:var(--muted);font-size:11px;margin:0;min-height:18px}.status.error{color:#f1b9a1}.status.success{color:var(--mint)}.preview{color:var(--gold)}
+@media(max-height:600px){.backdrop{padding:10px 30px}header{padding:8px 0 12px}main{padding:14px 0;gap:24px}h1{font-size:28px}.options{margin-bottom:13px}.option{min-height:65px;padding:7px 12px}.hint{margin:3px 0 9px}footer{padding:10px 0 4px}.controls{margin-top:4px}.bottom-note{padding:7px 12px}.mark{height:35px;width:35px}}
+@media(max-width:700px){.backdrop{padding:16px 20px}main{grid-template-columns:1fr;gap:8px}aside{display:none}.tag{max-width:120px;font-size:10px}.mark{display:none}h1{font-size:27px}.option{padding:10px}.option strong{font-size:21px}footer{flex-wrap:wrap}.status{width:100%}.actions{margin-left:0}.controls span:last-child{display:none}.bottom-note{display:block}.bottom-note span{display:block}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<div class="backdrop"><section class="panel" aria-labelledby="title">
+<header><div class="mark" aria-hidden="true"><span>☼</span></div><div><div class="eyebrow">Thor · Beeld</div><h1 id="title">Grafische instellingen</h1></div><div class="tag">ANDROID PORT<br>Grafische proef · nog geen spelbeeld</div></header>
+<main><aside><div>BEELD</div><p>Stem het beeld af op je avontuur.</p></aside><div>
+<h2>Renderresolutie</h2><p class="hint">Een lagere resolutie vraagt minder rekenwerk voor de spelwereld.</p>
+<div class="options" role="group" aria-label="Renderresolutie" id="render">
+<button class="option" data-w="640" data-h="360" aria-pressed="false"><strong>360p</strong><small>640 × 360 · Prestaties</small></button>
+<button class="option" data-w="960" data-h="540" aria-pressed="false"><strong>540p</strong><small>960 × 540 · Balans</small></button>
+<button class="option" data-w="1280" data-h="720" aria-pressed="true"><strong>720p</strong><small>1280 × 720 · Detail</small></button></div>
+<h2>Uitvoerresolutie</h2><p class="hint">De grootte van het uiteindelijke beeld op het scherm.</p>
+<div class="options" role="group" aria-label="Uitvoerresolutie" id="output">
+<button class="option" data-w="960" data-h="540" aria-pressed="false"><strong>540p</strong><small>960 × 540</small></button>
+<button class="option" data-w="1280" data-h="720" aria-pressed="true"><strong>720p</strong><small>1280 × 720 · Standaard</small></button>
+<button class="option" data-w="1920" data-h="1080" aria-pressed="false"><strong>1080p</strong><small>1920 × 1080</small></button></div>
+<div class="bottom-note"><b>Volgende spelstart</b><span>Renderresolutie wordt bij de volgende spelstart toegepast.<br>Uitvoerresolutie wijzigt nu het beeld van de grafische proef.</span></div>
+</div></main>
+<footer><button class="action reset" id="reset">Standaard herstellen</button><div class="actions"><button class="action" id="cancel">Terug</button><button class="action primary" id="apply">Instellingen bewaren</button></div></footer>
+<p class="status" id="status" role="status" aria-live="polite"></p>
+<div class="controls"><span>↑ ↓ Kiezen &nbsp; ← → Wijzigen &nbsp; A Bevestigen &nbsp; B Terug</span><span>Start · Menu openen</span></div>
+</section></div>
+<script>
+'use strict';
+const bridge=window.ThorSettings;
+const defaults={render:[1280,720],output:[1280,720]};
+let saved=structuredCloneSafe(defaults),draft=structuredCloneSafe(defaults),row=0,col=2,busy=false;
+function structuredCloneSafe(x){return JSON.parse(JSON.stringify(x))}
+const status=document.getElementById('status');
+function tell(text,kind=''){status.textContent=text;status.className='status '+kind}
+function hydrate(){
+ try{if(bridge){const value=JSON.parse(bridge.read());saved={render:value.render,output:value.output}}}
+ catch(e){tell('Instellingen konden niet worden gelezen.','error')}
+ draft=structuredCloneSafe(saved);paint();
+}
+function paint(){for(const group of ['render','output'])for(const button of document.querySelectorAll('#'+group+' button'))button.setAttribute('aria-pressed',String(+button.dataset.w===draft[group][0]&&+button.dataset.h===draft[group][1]));}
+for(const group of ['render','output'])for(const button of document.querySelectorAll('#'+group+' button'))button.addEventListener('click',()=>{draft[group]=[+button.dataset.w,+button.dataset.h];paint();tell('Nog niet bewaard.');});
+document.getElementById('reset').onclick=()=>{draft=structuredCloneSafe(defaults);paint();tell('Standaardwaarden gekozen. Bewaar om toe te passen.');};
+document.getElementById('cancel').onclick=()=>{draft=structuredCloneSafe(saved);paint();if(bridge)bridge.close();else tell('Wijzigingen geannuleerd. Dit is een browservoorbeeld.','preview');};
+document.getElementById('apply').onclick=()=>{
+ if(busy)return;busy=true;
+ try{
+  const ok=bridge?bridge.save(...draft.render,...draft.output):true;
+  if(!ok){tell('Bewaren mislukt. Je vorige instellingen blijven behouden.','error');return}
+  saved=structuredCloneSafe(draft);tell(bridge?'Bewaard. Renderresolutie geldt vanaf de volgende spelstart.':'Voorbeeld bijgewerkt. Alleen de Android-app bewaart instellingen.','success');
+ }catch(e){tell('Bewaren mislukt. Probeer opnieuw.','error')}
+ finally{busy=false}
+};
+function groups(){return [Array.from(document.querySelectorAll('#render button')),Array.from(document.querySelectorAll('#output button')),[document.getElementById('reset'),document.getElementById('cancel'),document.getElementById('apply')]]}
+window.thorKey=function(key){
+ const g=groups();let current=document.activeElement;
+ for(let r=0;r<g.length;r++){let c=g[r].indexOf(current);if(c>=0){row=r;col=c}}
+ if(key==='back'){document.getElementById('cancel').click();return}
+ if(key==='accept'){g[row][col].click();return}
+ if(key==='up')row=Math.max(0,row-1);
+ if(key==='down')row=Math.min(2,row+1);
+ if(key==='left')col=Math.max(0,col-1);
+ if(key==='right')col=Math.min(2,col+1);
+ g[row][col].focus();
+ if(row<2&&(key==='left'||key==='right'))g[row][col].click();
+};
+window.thorOpen=function(){hydrate();row=0;col=draft.render[0]===640?0:draft.render[0]===960?1:2;groups()[row][col].focus();tell(bridge?'Kies je beeldinstellingen.':'Browservoorbeeld · instellingen worden hier niet permanent bewaard.','preview');};
+document.addEventListener('keydown',e=>{const map={ArrowUp:'up',ArrowDown:'down',ArrowLeft:'left',ArrowRight:'right',Escape:'back'};if(map[e.key]){e.preventDefault();window.thorKey(map[e.key])}});
+// Native rendering is asynchronous. Report the actual swapchain extent, including
+// driver clamping or a failed resize; never label a requested size as achieved.
+let reported='';
+setInterval(()=>{
+ if(!bridge)return;
+ try{const s=JSON.parse(bridge.read());const value=JSON.stringify([s.actual,s.failed]);if(value===reported)return;reported=value;
+ if(s.failed)tell('Uitvoer wijzigen is mislukt. De vorige beeldgrootte is hersteld.','error');
+ else if(s.actual[0])tell('Actieve uitvoer: '+s.actual[0]+' × '+s.actual[1]+'. Renderresolutie geldt vanaf de volgende spelstart.');
+ }catch(e){}
+},700);
+window.thorOpen();
+</script></body></html>

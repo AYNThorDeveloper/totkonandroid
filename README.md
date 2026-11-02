@@ -1,0 +1,132 @@
+<h1 align="center">totkonandroid</h1>
+<p align="center"><strong>The Legend of Zelda: Tears of the Kingdom · experimental Android runtime</strong></p>
+<p align="center">
+  <img src=".github/badges/reference.svg" alt="Reference device: AYN Thor">
+  <img src=".github/badges/platform.svg" alt="Target: Android ARM64">
+  <img src=".github/badges/renderer.svg" alt="Renderer: Vulkan">
+</p>
+<p align="center">
+  <img src=".github/badges/status.svg" alt="Status: experimental">
+  <img src=".github/badges/distribution.svg" alt="Distribution: source only">
+</p>
+<p align="center">
+  <a href="#getting-started">Getting started</a> ·
+  <a href="#performance-on-the-ayn-thor">Performance</a> ·
+  <a href="#video-settings">Video settings</a> ·
+  <a href="#known-bugs">Known bugs</a> ·
+  <a href="BUILD_ANDROID.md">Build guide</a>
+</p>
+
+A native ARM64 runtime for Android, with a Vulkan renderer and on-device shader translation. Built on [MacNativeGames](https://github.com/ly05010419/MacNativeGames) and adapted for the **AYN Thor**.
+
+> [!IMPORTANT]
+> **The AYN Thor is the reference device.** Performance figures, controls and compatibility observations describe this device. Other Android hardware is unverified. This is an experimental project with known bugs.
+
+> [!NOTE]
+> **Source only.** No APKs, game files, keys, firmware, saves or game shader caches are distributed. Supply your own game input and build locally. This unofficial project is not affiliated with Nintendo.
+
+## At a glance
+
+| | Reference configuration |
+|---|---|
+| **Device** | **AYN Thor · Snapdragon 8 Gen 2 · ARM64** |
+| **Supported game input** | TOTK **1.4.3** |
+| **Observed heavier sections** | Approximately **35–40 fps** in the documented open-field session |
+| **Graphics** | Vulkan · local Turnip testing |
+| **Build host** | macOS ARM64 |
+| **Project state** | Experimental; scene/device-specific performance and incomplete full-game coverage |
+
+## Getting started
+
+The target is Android 10+ ARM64 with a compatible Vulkan GPU. **The AYN Thor is the reference model**, not a promise of equivalent results on other devices.
+
+1. Install the dependencies in the [build guide](BUILD_ANDROID.md).
+2. Supply your own base NSP/XCI, 1.4.3 update and keys to `tools/import_nsp.py`, or prepare a verified extracted dump with `tools/port.py prepare`.
+3. Build locally with `python tools/port.py build`.
+4. Plan installation with `python tools/port.py install --serial DEVICE_SERIAL`; add `--apply` to install on that device.
+
+The native Android shader translator can build missing variants on the device. A distributed game-derived seed or a running Mac shader bridge is not required. No in-app game importer is supplied.
+
+## Performance on the AYN Thor
+
+Measured 29 October 2026 with **Turnip V38**, during approximately 135 seconds of user-controlled open-field gameplay. Presentation intervals were sampled in 59 groups of five frames.
+
+| Metric | Observation |
+|---|---|
+| Heavier sections | Approximately 25–30 ms; reported approximately **35–40 fps** |
+| Median sampled presentation interval | **21.2 ms** — approximately 47 fps reciprocal |
+| p95 sampled interval | 31.0 ms |
+| Maximum sampled interval | 46.1 ms |
+| GPU time, heaviest section | 20.8–27.9 ms/frame |
+| GPU time, quieter section | 14.9–16.4 ms/frame |
+| Mean GPU utilization | 74%, GPU clock 680 MHz |
+| Stability during this session | No observed crash or freeze |
+
+These samples are not a full-game average or a sustained 47-fps claim. The reciprocal of a median interval is not average FPS. The benchmark driver differs from the later restored Turnip 27 configuration. The report does not independently establish the render resolution. Driver binaries are not bundled.
+
+## Video settings
+
+![Project-authored TOTK video settings UI with illustrative rendering, output, frame-limit and language values](docs/images/video-settings.png)
+
+*Browser capture of the project's own menu HTML. The example values illustrate the controls; this is not a device or gameplay screenshot. No game imagery or official logo is included.*
+
+Press **L3 + R3 together** on the AYN Thor to open the menu. Use the D-pad to navigate and left/right to change a value. Select **Apply changes** and confirm with **A**. **B goes back**.
+
+| Setting | What it changes | When it applies |
+|---|---|---|
+| Frame-rate limit | Presentation cap; Unlocked follows the screen | Immediately after applying |
+| Render resolution | Resolution at which the game world is drawn | After restarting the game |
+| Output resolution | Final image size sent to the screen | After restarting the game |
+| Language | Game text/menu language override | After restarting the game |
+
+Output resolution and internal render resolution are separate. A 1080p output alone does not establish 1080p internal rendering. See [the video-settings guide](docs/VIDEO_SETTINGS.md).
+
+## Known bugs
+
+| Area | Current limitation |
+|---|---|
+| Shader compilation | First-use translation can cause visible stalls, especially with an empty cache |
+| Hardware | Devices other than the AYN Thor reference model are unverified |
+| Coverage | The full game has not been validated in this exported checkout |
+| Setup | Command-line developer workflow; no in-app importer |
+| Build hosts | Windows and Linux workflows are not supported by these instructions |
+| Higher resolutions | Options exist; the cited benchmark does not establish a tested 1080p configuration |
+
+<details>
+<summary><strong>Resolved issues and remaining test coverage</strong></summary>
+
+The black weapon/ability wheel and dark shadow blocks were reported fixed on the AYN Thor on 28 October. They are not listed as open bugs. Cold-cache gameplay of this exported checkout still needs device validation.
+
+</details>
+
+## Build verification
+
+The isolated source export was prepared and built on 2 November 2026:
+
+| Check | Local result |
+|---|---|
+| Supported dump → private runtime data | Passed |
+| Android NativeAOT translator | Built from source |
+| Private debug APK and signature verification | Passed; **not distributed** |
+| RomFS backend | 23 scenarios passed, ASan/UBSan |
+| Graphics settings and renderer host regressions | Passed within the documented scope |
+
+No app was installed or launched during this export validation. See [VALIDATION.md](VALIDATION.md) for skipped private-cache checks, the NSP wrapper's test scope and device-test limits.
+
+## Project layout
+
+| Directory | Contents |
+|---|---|
+| `android/` | Android loader, host services, Vulkan backend, project-authored UI and tests |
+| `games/totk/` | Inherited runtime, graphics implementation and preparation code |
+| `vendor/` | Shader-translator dependency source |
+| `tools/` | Import, build/preparation, install and publication helpers |
+| `docs/` | Reference-device and video-settings guides, UI preview and inherited technical notes |
+
+## Source, licensing and contributions
+
+Preserve [LICENSE](LICENSE), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and all dependency notices. The retained code is licensed source; no license to game or firmware content is granted. See [SOURCE_ORIGIN.md](SOURCE_ORIGIN.md) and [PUBLICATION_REVIEW.md](PUBLICATION_REVIEW.md) for the selection and review scope.
+
+The badges and menu preview are project-authored documentation assets. [README.upstream.md](README.upstream.md) describes the inherited Apple implementation and is retained for attribution and technical reference.
+
+For bug reports, include your device, game version, driver, settings and reproduction steps. **Always state whether you are using the AYN Thor reference configuration.** See [CONTRIBUTING.md](CONTRIBUTING.md). Never attach APKs, game data, keys, firmware, saves or shader caches to commits, issues or releases.

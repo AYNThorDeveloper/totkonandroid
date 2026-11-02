@@ -1,0 +1,56 @@
+.DS_Store
+__pycache__/
+*.pyc
+# never commit keys or game files
+*.keys
+*.xci
+*.nsp
+*.nca
+*.nsz
+*.xcz
+*.bfttf
+*.sav
+# build output (the work folder normally lives next to the card image)
+TOTK_build/
+*.app/
+games/totk/.venv
+games/totk/build/
+games/totk/extracted/
+games/totk/rewritten/
+games/totk/analysis/
+games/totk/tooling/
+games/totk/user-data/
+games/src/
+games/totk/tools/totk_xlate/obj/
+games/totk/tools/totk_xlate/bin/
+games/totk/scripts/shader_inventory/obj/
+games/totk/scripts/shader_inventory/bin/
+
+# Android publication defaults
+**/build/
+**/bin/
+**/obj/
+*.apk
+*.aab
+*.so
+*.a
+*.o
+*.elf
+*.bin
+*.romfs
+*.keystore
+*.jks
+.env
+.env.*
+local.properties
+/cache/
+/shaders/
+/shader-seed*/
+
+/publication-work/
+games/totk/prebuilt/
+
+*.log
+
+# Reviewed documentation capture of our own HTML menu, without game imagery.
+!/docs/images/video-settings.png
