@@ -13,6 +13,7 @@
   <a href="#getting-started">Getting started</a> ·
   <a href="#performance-on-the-ayn-thor">Performance</a> ·
   <a href="#video-settings">Video settings</a> ·
+  <a href="#resolved-graphics-issues">Resolved graphics issues</a> ·
   <a href="#known-bugs">Known bugs</a> ·
   <a href="BUILD_ANDROID.md">Build guide</a>
 </p>
@@ -83,6 +84,21 @@ Press **L3 + R3 together** on the AYN Thor to open the menu. Use the D-pad to na
 
 Output resolution and internal render resolution are separate. A 1080p output alone does not establish 1080p internal rendering. See [the video-settings guide](docs/VIDEO_SETTINGS.md).
 
+## Resolved graphics issues
+
+The following graphics fixes are reported on the **AYN Thor reference device**:
+
+| Issue | Status |
+|---|---|
+| Lighting | Fixed |
+| Water rendering | Fixed |
+| Texture filtering | Fixed |
+| Black squares / dark shadow blocks | Fixed |
+| Black weapon/ability wheel | Fixed |
+| Flickering | Largely fixed; some residual flickering may remain |
+
+These observations cover tested gameplay on the reference device. A complete playthrough and empty-cache gameplay still need more testing.
+
 ## Known bugs
 
 | Area | Current limitation |
@@ -93,13 +109,6 @@ Output resolution and internal render resolution are separate. A 1080p output al
 | Setup | Command-line developer workflow; no in-app importer |
 | Build hosts | Windows and Linux workflows are not supported by these instructions |
 | Higher resolutions | Options exist; the cited benchmark does not establish a tested 1080p configuration |
-
-<details>
-<summary><strong>Resolved issues and remaining test coverage</strong></summary>
-
-The black weapon/ability wheel and dark shadow blocks are fixed on the AYN Thor. Empty-cache gameplay still needs more testing.
-
-</details>
 
 ## Testing
 
